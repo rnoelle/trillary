@@ -6,17 +6,25 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TrumpQuoteComponent } from './trump/trump-quote.component';
+import { TrumpService } from './trump/trump.service';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: 'trump-quotes',
+        component: TrumpQuoteComponent
+      }
+    ])
   ],
   declarations: [
     AppComponent,
     TrumpQuoteComponent
   ],
+  providers: [ TrumpService ],
   bootstrap: [ AppComponent]
 })
 
