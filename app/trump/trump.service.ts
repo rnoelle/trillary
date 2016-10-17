@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TrumpService {
-  private quotesUrl = 'an url';
+  private quotesUrl = "https://api.whatdoestrumpthink.com/api/v1/quotes/";
   private headers = new Headers({'Content-Type': 'application/json'});
   private handleError(error: any): Promise<any> {
     console.error('An error ocurred', error);
@@ -15,9 +15,17 @@ export class TrumpService {
   constructor(private http: Http) {}
 
   getRandomQuote(): Promise<string> {
-    return this.http.get(this.quotesUrl)
+    return this.http.get(this.quotesUrl + "random")
               .toPromise()
               .then(response => response.json().message as string)
+              .catch(this.handleError);
+  }
+  getPersQuote(persName: string): Promise<string> {
+    return this.http.get(this.quotesUrl + "personalized?q=" + persName)
+              .toPromise()
+              .then(response => {
+                return response.json().message as string;
+              })
               .catch(this.handleError);
   }
 }

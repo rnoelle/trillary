@@ -17,7 +17,10 @@ import { TrumpService } from './trump/trump.service';
       {
         path: 'trump-quotes',
         component: TrumpQuoteComponent
-      }
+      },
+      // {
+      //   path: '/'
+      // }
     ])
   ],
   declarations: [

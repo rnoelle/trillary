@@ -1,8 +1,9 @@
-<h3>Get a Personalized Quote</h3>
-<input type="text" placeholder="Your Name"/>
+<h3>Find out what Trump thinks of you</h3>
+<input [(ngModel)]="persName" type="text" placeholder="Your Name"/>
+<button (click)="persQuote(persName)">Get Personalized Quote</button>
 <h4>- or -</h4>
 <button (click)="randomQuote()">
   Get a Random Quote
 </button>
 
-<h2>{{quote}}</h2>
+<h2 *ngIf="quote"><span *ngIf="quoteName">{{quoteName}} is </span>{{quote}}</h2>
