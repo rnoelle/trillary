@@ -1,0 +1,32 @@
+<h2> Search Hillary's Emails </h2>
+
+<h4>Search by:</h4>
+<input type="radio" [(ngModel)]="type" name="search-type" value="subject" id="search-subject">
+  <label for="search-subject">Subject</label>
+<input type="radio" [(ngModel)]="type" name="search-type" value="sender" id="search-sender">
+<label for="search-sender">Sender</label>
+<input type="radio" [(ngModel)]="type" name="search-type" value="recipient" id="search-recipient">
+<label for="search-recipient">Recipient</label>
+<div>
+  <input [(ngModel)]="term" placeholder="Search Term">
+  <button (click)="search()">Go</button>
+</div>
+
+
+<ul *ngIf="subjects">
+  <li *ngFor="let subject of subjects" class="listing" (click)="subjectClick(subject.id)">
+    <h5>subject {{subject.id}}</h5>
+  </li>
+</ul>
+
+<ul *ngIf="sender">
+  <li *ngFor="let sender of senders" class="listing">
+    <h5>subject {{subject.id}}</h5>
+  </li>
+</ul>
+
+<ul *ngIf="recipient">
+  <li *ngFor="let recipient of recipients" class="listing">
+    <h5>subject {{subject.id}}</h5>
+  </li>
+</ul>

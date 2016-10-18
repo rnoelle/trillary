@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TrumpQuoteComponent } from './trump/trump-quote.component';
 import { TrumpService } from './trump/trump.service';
+import { HillaryEmailComponent } from './hillary/hillary-email.component';
 
 @NgModule({
   imports: [
@@ -18,14 +19,16 @@ import { TrumpService } from './trump/trump.service';
         path: 'trump-quotes',
         component: TrumpQuoteComponent
       },
-      // {
-      //   path: '/'
-      // }
+      {
+        path: 'hillary-emails',
+        component: HillaryEmailComponent
+      }
     ])
   ],
   declarations: [
     AppComponent,
-    TrumpQuoteComponent
+    TrumpQuoteComponent,
+    HillaryEmailComponent
   ],
   providers: [ TrumpService ],
   bootstrap: [ AppComponent]
