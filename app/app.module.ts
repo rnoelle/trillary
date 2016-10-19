@@ -6,8 +6,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TrumpQuoteComponent } from './trump/trump-quote.component';
-import { TrumpService } from './trump/trump.service';
 import { HillaryEmailComponent } from './hillary/hillary-email.component';
+import { TrumpService } from './trump/trump.service';
+import { HillaryService } from './hillary/hillary.service';
 
 @NgModule({
   imports: [
@@ -30,7 +31,10 @@ import { HillaryEmailComponent } from './hillary/hillary-email.component';
     TrumpQuoteComponent,
     HillaryEmailComponent
   ],
-  providers: [ TrumpService ],
+  providers: [
+    TrumpService,
+    HillaryService
+  ],
   bootstrap: [ AppComponent]
 })
 
