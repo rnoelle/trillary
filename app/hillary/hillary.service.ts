@@ -19,7 +19,17 @@ export class HillaryService {
     return this.http.get(this.emailUrl + "subject" + this.apiKey + "/" + subject)
                 .toPromise()
                 .then(response => {
-                  console.log(response.json());
+                  console.log(response.json())
+                  return response.json()
+                })
+                .catch(this.handleError);
+  }
+
+  emailsBySender(sender: string): Promise<any> {
+    return this.http.get(this.emailUrl + "from" + this.apiKey + "/" + sender)
+                .toPromise()
+                .then(response => {
+                  console.log(response)
                   return response.json()
                 })
                 .catch(this.handleError);

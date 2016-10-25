@@ -10,9 +10,7 @@ import { HillaryService } from './hillary.service'
 })
 
 export class HillaryEmailComponent {
-  subjects: any[];
-  senders: any[];
-  recipients: any[];
+  emails: any[];
   email: any;
 
   constructor(private hillaryService: HillaryService) {}
@@ -21,16 +19,20 @@ export class HillaryEmailComponent {
     if (type == "subject") {
       this.hillaryService.emailsBySubject(term)
           .then((emails: any[]) => {
-            this.subjects = emails;
+            this.emails = emails;
+          })
+    } else if (type == "sender") {
+      this.hillaryService.emailsBySender(term)
+          .then((emails: any[]) => {
+            this.emails = emails;
           })
     }
   }
   getById(id: string): void {
     this.hillaryService.getById(id)
       .then((email: any) => {
-        this.subjects = undefined;
+        this.emails = [];
         this.email = email;
-        this.email.text = this.email.raw.parseHTML()
       })
   }
 }

@@ -16,23 +16,13 @@
   <h4>To: {{email.to}}</h4>
   <h4>From: {{email.from}}</h4>
   <h4>{{email.subject}}</h4>
-  <h3>{{email.text}}</h3>
+  <h3>{{email.body}}</h3>
 </div>
 
-<ul *ngIf="subjects">
-  <li *ngFor="let subject of subjects" class="listing" (click)="getById(subject.id)">
-    <h5>Email {{subject.id}}</h5>
-  </li>
-</ul>
-
-<ul *ngIf="sender">
-  <li *ngFor="let sender of senders" class="listing">
-    <h5>subject {{subject.id}}</h5>
-  </li>
-</ul>
-
-<ul *ngIf="recipient">
-  <li *ngFor="let recipient of recipients" class="listing">
-    <h5>subject {{subject.id}}</h5>
-  </li>
-</ul>
+<div *ngIf="emails">
+  <div *ngFor="let email of emails; let i = index" class="listing" (click)="getById(email.id)">
+    <div *ngIf="i<10">
+      <h5>Email {{email.id}}</h5>
+    </div>
+  </div>
+</div>
