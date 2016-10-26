@@ -16,6 +16,7 @@ export class HillaryEmailComponent {
   constructor(private hillaryService: HillaryService) {}
 
   search(type: string, term: string): void {
+    this.email = undefined;
     if (type == "subject") {
       this.hillaryService.emailsBySubject(term)
           .then((emails: any[]) => {
@@ -26,8 +27,15 @@ export class HillaryEmailComponent {
           .then((emails: any[]) => {
             this.emails = emails;
           })
+    } else if (type == "recipient") {
+      this.hillaryService.emailsByRecipient(term)
+          .then((emails:any[]) => {
+            this.emails = emails;
+            console.log("First", emails[0])
+          })
     }
   }
+
   getById(id: string): void {
     this.hillaryService.getById(id)
       .then((email: any) => {
