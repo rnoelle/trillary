@@ -10,6 +10,7 @@ import { TrumpQuoteComponent } from './trump/trump-quote.component';
 import { HillaryEmailComponent } from './hillary/hillary-email.component';
 import { TrumpService } from './trump/trump.service';
 import { HillaryService } from './hillary/hillary.service';
+import { PageService } from './page.service';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { HillaryService } from './hillary/hillary.service';
   ],
   providers: [
     TrumpService,
-    HillaryService
+    HillaryService,
+    PageService
   ],
   bootstrap: [ AppComponent]
 })
