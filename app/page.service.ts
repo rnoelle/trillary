@@ -1,11 +1,13 @@
-import * as _ from 'underscore';
+import { Injectable } from '@angular/core';
+
+@Injectable()
 
 export class PageService {
   getPager(totalItems: number, currentPage: number = 1,
       pageSize: number = 10) {
     var totalPages = Math.ceil(totalItems / pageSize);
 
-    var startPage, endPage;
+    var startPage: number, endPage: number;
     if (totalPages <=10) {
       startPage = 1;
       endPage = totalPages;
@@ -25,7 +27,10 @@ export class PageService {
     var startIndex = (currentPage - 1) * pageSize;
     var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1)
 
-    var pages = _.range(startPage, endPage + 1);
+    var pages: number[] = [];
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
 
     return {
       totalItems: totalItems,

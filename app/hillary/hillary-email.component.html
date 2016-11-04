@@ -20,9 +20,25 @@
 </div>
 
 <div *ngIf="emails">
-  <div *ngFor="let email of emails; let i = index" class="listing" (click)="getById(email.id)">
-    <div *ngIf="i<10">
+  <div *ngFor="let email of pagedItems; let i = index" class="listing" (click)="getById(email.id)">
       <h5>Email {{email.id}}</h5>
-    </div>
   </div>
+
+  <ul *ngIf="pager.pages" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Previous</a> 
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+  </ul>
 </div>
