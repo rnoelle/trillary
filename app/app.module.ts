@@ -8,9 +8,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { TrumpQuoteComponent } from './trump/trump-quote.component';
 import { HillaryEmailComponent } from './hillary/hillary-email.component';
+// import { DropdownComponent } from './dropdown/dropdown.component';
 import { TrumpService } from './trump/trump.service';
 import { HillaryService } from './hillary/hillary.service';
 import { PageService } from './page.service';
+import { DropdownService } from './dropdown/dropdown.service'
+
 
 @NgModule({
   imports: [
@@ -41,7 +44,8 @@ import { PageService } from './page.service';
   providers: [
     TrumpService,
     HillaryService,
-    PageService
+    PageService,
+    DropdownService
   ],
   bootstrap: [ AppComponent]
 })
