@@ -19,8 +19,8 @@ export class Dropdown implements OnInit, OnDestroy {
     @Input() public keyboardNav:boolean;
     @Input() public appendToBody:boolean;
 
-    @Output() public onToggle:EventEmitter<boolean> = new EventEmitter();
-    @Output() public isOpenChange:EventEmitter<boolean> = new EventEmitter();
+    @Output() public onToggle = new EventEmitter();
+    @Output() public isOpenChange = new EventEmitter();
     @HostBinding('class.dropdown') private addClass = true;
 
     private _isOpen:boolean;
@@ -32,7 +32,7 @@ export class Dropdown implements OnInit, OnDestroy {
     public toggleEl:ElementRef;
     dropdownMenuList: QueryList<ElementRef>;
     constructor(public el:ElementRef,
-                Query = ElementRef, dropdownMenuList: QueryList<ElementRef>) {
+                Query:ElementRef, dropdownMenuList: QueryList<ElementRef>) {
      }
 
     public set isOpen(value) {

@@ -9,6 +9,9 @@ import { HomeComponent } from './home.component';
 import { TrumpQuoteComponent } from './trump/trump-quote.component';
 import { HillaryEmailComponent } from './hillary/hillary-email.component';
 // import { DropdownComponent } from './dropdown/dropdown.component';
+import { Dropdown } from './dropdown/dropdown.directive';
+import { DropdownToggle } from './dropdown/dropdown-toggle.directive';
+import { DropdownMenu } from './dropdown/dropdown-menu.directive';
 import { TrumpService } from './trump/trump.service';
 import { HillaryService } from './hillary/hillary.service';
 import { PageService } from './page.service';
@@ -39,7 +42,10 @@ import { DropdownService } from './dropdown/dropdown.service'
     AppComponent,
     HomeComponent,
     TrumpQuoteComponent,
-    HillaryEmailComponent
+    HillaryEmailComponent,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu
   ],
   providers: [
     TrumpService,
